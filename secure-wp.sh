@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Prompt for the domain name
+read -p "Enter the domain name: " domain_name
+
 # Define the WordPress root directory
-WP_ROOT="/var/www/domain_name/html"
+WP_ROOT="/var/www/$domain_name/html"
 
 # Check if the directory exists
 if [ ! -d "$WP_ROOT" ]; then
@@ -22,4 +25,4 @@ find . -type f -exec chmod 644 {} \;
 chmod 600 wp-config.php
 
 # Script completion
-echo "WordPress permissions have been set successfully."
+echo "WordPress permissions for $domain_name have been set successfully."
